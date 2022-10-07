@@ -1,0 +1,13 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}New post blog{% endblock title %}
+
+{% block body %}
+    <h1>New Post Blog</h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit" name="submit" value="submit">
+    </form>
+{% endblock body %}

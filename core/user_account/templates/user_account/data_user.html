@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}User data{% endblock title %}
+
+{% block body %}
+    <h1>Data user</h1>
+
+    <p>ID_user : {{ id_user }}</p>
+    <p>Creation date : {{ creation_date|date:"d F Y à H:i:s" }}</p>
+    <p>Firstname : {{ firstname }}</p>
+    <p>Lastname : {{ lastname }}</p>
+    {% comment %} <p>Password : {{ password }}</p> {% endcomment %}
+    <p>Email : {{ email }}</p>
+    <p>Street : {{ street }}</p>
+    <p>Number street : {{ number_street }}</p>
+    <p>Zip code : {{ zip_code }}</p>
+    <p>Town : {{ town }}</p>
+    <p>Country : {{ country }}</p>
+    <p>gsm : {{ gsm }}</p>
+    
+    <ul>
+        <li>
+            <a href="{% url 'index-user' %}">Index</a>
+        </li>
+        <li>
+            <a href="{% url 'update-user' id_user %}">Update</a>
+        </li>
+        <li>
+            <a href="{% url 'delete-user' id_user %}">Delete</a>
+        </li>
+    </ul>
+
+{% endblock body %}

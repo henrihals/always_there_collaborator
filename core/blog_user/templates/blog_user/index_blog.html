@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Index blog{% endblock title %}
+
+{% block body %}
+    <h1>List blog</h1>
+    <p>Today, there are {{ count_article }}</p>
+    <table>
+            <thead>
+                <tr>
+                    <th>Identifier</th>
+                    <th>Title</th>
+                    <th>Creation date</th>
+                </tr>
+            </thead>
+            {% for blog in list_article_blogs %}
+            <tbody>
+                <tr>
+                    <td><a href="{% url 'data-article-user' blog.id_blog %}"> {{ blog.id_blog }} </a></td>
+                    <td> {{ blog.title }} </td>
+                    <td> {{ blog.creation_date|date:"d F Y à H:i:s" }} </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+    </table>
+{% endblock body %}

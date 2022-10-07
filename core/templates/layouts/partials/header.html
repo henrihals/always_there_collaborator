@@ -1,0 +1,80 @@
+<nav class="">
+    <div class="">
+        <a class="" href="{% url 'homepage' %}">Always There</a>
+        <div class="" id="">
+        <ul class="">
+            {% comment %} si je ne met que {% request.user.lastname %}, je peux afficher le lastname {% endcomment %}
+            {% comment %} Le if ici permet de savoir si on est enregistré ou pas {% endcomment %}
+            {% if request.user.is_authenticated %} 
+            <li class="">
+                <a class="" href="{% url 'index-collaborator' %}">Collaborateurs</a>
+            </li>
+            <li class="">
+                <a class="" href="{% url 'index-user' %}">Utilisateurs</a>
+            </li>
+            <li class="">
+                <a class="" href="{% url 'index-blog-user' %}">Blog</a>
+            </li>
+            <li class="">
+                <a class="" href="{% url 'new-post-user' %}">Newpost</a>
+            </li>
+            <li class="">
+                <a class="" href="#">Mes messages</a>
+            </li>
+            <li class="">
+                <a class="" href="#">Mon coffre-fort</a>
+            </li>
+            <li class="">
+                <a class="" href="#">Mon juridique</a>
+            </li>
+            
+                <a class="" href="#">Index maison-funéraire</a>
+            </li>
+            <li class="">
+                <a class="" href="#">e-commerce</a>
+            </li>
+            {% comment %} <li class="">
+                <a class="" href="{% url 'register-user' %}">Register_user</a>
+            </li>
+            <li class="">
+                <a class="" href="{% url 'register-collaborator' %}">Register_collaborator</a>
+            </li> {% endcomment %}
+            <li class="">
+                <a class="" href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="">
+                <a class="" href="{% url 'logout' %}">Login</a>
+            </li>
+            <li class="">
+                <a class="" href="{% url 'register-account-collaborator' %}">Sign up collaborator</a>
+            </li>
+            <li class="">
+                <a class="" href="{% url 'register-account-user' %}">Sign up user</a>
+            </li>
+            <li class="">
+                <a class="" href="#">Qui sommes-nous</a>
+            </li>
+            <li class="">
+                <a class="" href="#">Confidant</a>
+            </li>
+            <li class="">
+                <a class="" href="#">Juridique</a>
+            </li>
+            <li class="">
+                <a class="" href="#">Blog</a>
+            </li>
+            <li class="">
+                <a class="" href="#">Coffre-fort</a>
+            </li>
+            <li class="">
+                <a class="" href="#">Index maison-funéraire</a>
+            </li>
+            <li class="">
+                <a class="" href="#">e-commerce</a>
+            </li>
+            {% endif %}
+        </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Data article blog{% endblock title %}
+
+{% block body %}
+    <h1>Data article blog</h1>
+
+    <p>ID_article : {{ id_blog }}</p>
+    <p>Creation date : {{ creation_date|date:"d F Y à H:i:s" }}</p>
+    <p>Title : {{ title }}</p>
+    <p>Content article : {{ content_blog }}</p>
+    
+    <ul>
+        <li>
+            <a href="{% url 'index-blog-user' %}">Index</a>
+        </li>
+        <li>
+            <a href="{% url 'new-post-user' %}">New post blog</a>
+        </li>
+        <li>
+            <a href="{% url 'update-article-user' id_blog %}">Update</a>
+        </li>
+        <li>
+            <a href="{% url 'delete-article-user' id_blog %}">Delete</a>
+        </li>
+    </ul>
+
+{% endblock body %}

@@ -1,0 +1,31 @@
+from django.db import models
+
+# Create your models here.
+
+# DB data collaborator
+
+class Index_collaborator(models.Model):
+
+    id_collaborator = models.AutoField(primary_key=True)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    firstname = models.CharField(max_length=50, null=False)
+    lastname = models.CharField(max_length=50, null=False)
+    #password = models.CharField(max_length=50, null=False)
+    email = models.EmailField(max_length=100, unique=True, null=False)
+    street = models.CharField(max_length=100, null=False)
+    number_street = models.CharField(max_length=10, null=False)
+    zip_code = models.CharField(max_length=10, null=False)
+    town = models.CharField(max_length=50, null=False)
+    country = models.CharField(max_length=50, null=False)
+    prefix_gsm = models.PositiveIntegerField(null=False)
+    gsm = models.PositiveIntegerField(null=False)
+
+    def __str__(self):
+        return f'{self.id_collaborator}   /   {self.creation_date}   /   {self.firstname}   /   {self.lastname}   /   {self.email}   /   {self.town}   /   {self.country}  / {self.prefix_gsm}{self.gsm}'
+
+class Join_table(models.Model):
+
+    id_collaborator = models.ForeignKey(to=Index_collaborator, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.id_collaborator}'
