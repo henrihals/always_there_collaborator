@@ -1,34 +1,30 @@
 {% extends 'layouts/base.html' %}
 
+{% load static %}
+
 {% block title %}Index user{% endblock title %}
 
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'user_account/css/index.css' %}">
+{% endblock stylesheets %}
+
 {% block body %}
-    <h1>List user</h1>
-    <p>Today, there are {{ user_number }} users.</p>
-    <table>
-            <thead>
-                <tr>
-                    <th>Identifier</th>
-                    <th>Firstname</th>
-                    <th>lastname</th>
-                    <th>Email</th>
-                    <th>Town</th>
-                    <th>Country</th>
-                    <th>Creation date</th>
-                </tr>
-            </thead>
-            {% for user in index_users %}
-            <tbody>
-                <tr>
-                    <td><a href="{% url 'data-user' user.id_user %}"> {{ user.id_user }} </a></td>
-                    <td> {{ user.firstname }} </td>
-                    <td> {{ user.lastname }} </td>
-                    <td> {{ user.email }} </td>
-                    <td> {{ user.town }} </td>
-                    <td> {{ user.country }} </td>
-                    <td> {{ user.creation_date|date:"d F Y à H:i:s" }} </td>
-                </tr>
-            </tbody>
-        {% endfor %}
-    </table>
+    <div class="container-title">
+        <H1>We are currently {{ user_number }} user :</H1>
+        <a href="{% url 'register-user' %}">
+            <button>Create user</button>
+        </a>
+    </div>
+    <div class="container-card-index-user">
+    {% for user in index_users %}
+    <a href="{% url 'data-user' user.id_user %}">
+        <ul class="container-card-user">
+        {% if profile.image %}
+            <li><img src="{{ user.image.url }}" alt="Photo profil"></li>
+        {% endif %}
+            <li class="name-card-index"> {{ user.id_user }} </li>
+        </ul>
+    </a>   
+    {% endfor %}
+    </div> 
 {% endblock body %}

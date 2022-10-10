@@ -11,6 +11,8 @@ from django.contrib.auth.decorators import login_required #Permet de bloquer les
 @login_required
 def data_user(request, id):
 
+    user = Join_table_user.objects.get(id_user = id)
+
     try:
         user = Join_table_user.objects.get(id_user = id)
         profile = user.id_user
@@ -20,7 +22,6 @@ def data_user(request, id):
             "creation_date" : profile.creation_date,
             "firstname" : profile.firstname,
             "lastname" : profile.lastname,
-            #"password" : profile.password,
             "email" : profile.email,
             "street" : profile.street,
             "number_street" : profile.number_street,

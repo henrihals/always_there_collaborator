@@ -1,25 +1,22 @@
+{% load static %}
+
 <footer>
     <nav class="">
-        <div class="">
-            <a class="" href="{% url 'login-collaborator' %}">Always There</a>
+        <div class="container-nav-footer">
             <div class="" id="">
-            <ul class="">
-                <li class="">
-                    <a class="" href="{% url 'index-collaborator' %}">Collaborateurs</a>
-                </li>
-                <li class="">
-                    <a class="" href="{% url 'index-user' %}">Utilisateurs</a>
-                </li>
-                <li class="">
-                    <a class="" href="{% url 'index-blog-user' %}">Blog</a>
-                </li>
-                </li>
-                <li class="">
-                    <a class="" href="{% url 'new-post-user' %}">Newpost</a>
-                </li>
-            </ul>
+                <ul class="container-link-nav-footer">
+                    <li class="">
+                        <a class="link-nav-footer" href="{% url 'construction' %}">FAQ</a>
+                    </li>
+                    <li class="">
+                        <a class="link-nav-footer" href="{% url 'construction' %}">Terms and conditions of use</a>
+                    </li>
+                    <li class="">
+                        <a class="link-nav-footer" href="{% url 'construction' %}">Legal Statement</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
-    <p>copyright &copy; Projet BeCode</p>
+    <p class="copyright-footer">copyright &copy; {% now 'Y' %} Projet BeCode</p>
 </footer>

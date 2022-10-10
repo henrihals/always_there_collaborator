@@ -1,33 +1,36 @@
 {% extends 'layouts/base.html' %}
 
+{% load static %}
+
 {% block title %}User data{% endblock title %}
 
-{% block body %}
-    <h1>Data user</h1>
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'user_account/css/data.css' %}">
+{% endblock stylesheets %}
 
-    <p>ID_user : {{ id_user }}</p>
-    <p>Creation date : {{ creation_date|date:"d F Y à H:i:s" }}</p>
-    <p>Firstname : {{ firstname }}</p>
-    <p>Lastname : {{ lastname }}</p>
-    {% comment %} <p>Password : {{ password }}</p> {% endcomment %}
-    <p>Email : {{ email }}</p>
-    <p>Street : {{ street }}</p>
-    <p>Number street : {{ number_street }}</p>
-    <p>Zip code : {{ zip_code }}</p>
-    <p>Town : {{ town }}</p>
-    <p>Country : {{ country }}</p>
-    <p>gsm : {{ gsm }}</p>
-    
-    <ul>
-        <li>
-            <a href="{% url 'index-user' %}">Index</a>
-        </li>
-        <li>
-            <a href="{% url 'update-user' id_user %}">Update</a>
-        </li>
-        <li>
-            <a href="{% url 'delete-user' id_user %}">Delete</a>
-        </li>
-    </ul>
+{% block body %}
+    <div class="container-title">
+        {% if image %}
+        <img src="{{ image.url }}" alt="Picture of me">
+        {% endif %}
+        <h1>{{ firstname }} {{ lastname }}</h1>
+    </div>
+    <div class="container-card-index-user">
+        <ul class="container-card-user">
+            <li>Email : {{ email }}</li>
+            <li>Username : {{ username }}</li>
+            <li>Street : {{ street }}</li>
+            <li>Number street : {{ number_street }}</li>
+            <li>Zip code : {{ zip_code }}</li>
+            <li>Town : {{ town }}</li>
+            <li>Country : {{ country }}</li>
+            <li>gsm : + {{ gsm }}</li>
+        </ul>
+    </div>
+    <div class="container-button">
+        <a href="{% url 'index-user' %}"><button>Index</button></a>
+        <a href="{% url 'update-user' id_user %}"><button>Update</button></a>
+        <a href="{% url 'delete-user' id_user %}"><button>Delete</button></a>
+    </div>
 
 {% endblock body %}

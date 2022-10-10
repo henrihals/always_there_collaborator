@@ -1,33 +1,36 @@
 {% extends 'layouts/base.html' %}
 
+{% load static %}
+
 {% block title %}Collaborator data{% endblock title %}
 
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'collaborator_account/css/data.css' %}">
+{% endblock stylesheets %}
+
 {% block body %}
-    <h1>Data collaborator</h1>
-
-    <p>ID_collaborator : {{ id_collaborator }}</p>
-    <p>Creation date : {{ creation_date|date:"d F Y à H:i:s" }}</p>
-    <p>Firstname : {{ firstname }}</p>
-    <p>Lastname : {{ lastname }}</p>
-    {% comment %} <p>Password : {{ password }}</p> {% endcomment %}
-    <p>Email : {{ email }}</p>
-    <p>Street : {{ street }}</p>
-    <p>Number street : {{ number_street }}</p>
-    <p>Zip code : {{ zip_code }}</p>
-    <p>Town : {{ town }}</p>
-    <p>Country : {{ country }}</p>
-    <p>gsm : {{ gsm }}</p>
-
-    <ul>
-        <li>
-            <a href="{% url 'index-collaborator' %}">Index</a>
-        </li>
-        <li>
-            <a href="{% url 'update-collaborator' id_collaborator %}">Update</a>
-        </li>
-        <li>
-            <a href="{% url 'delete-collaborator' id_collaborator %}">Delete</a>
-        </li>
-    </ul>
+    <div class="container-title">
+        {% if image %}
+        <img src="{{ image.url }}" alt="Picture of me">
+        {% endif %}
+        <h1>{{ firstname }} {{ lastname }}</h1>
+    </div>
+    <div class="container-card-index-collaborator">
+        <ul class="container-card-collaborator">
+            <li>Email : {{ email }}</li>
+            <li>Username : {{ username }}</li>
+            <li>Street : {{ street }}</li>
+            <li>Number street : {{ number_street }}</li>
+            <li>Zip code : {{ zip_code }}</li>
+            <li>Town : {{ town }}</li>
+            <li>Country : {{ country }}</li>
+            <li>gsm : + {{ gsm }}</li>
+        </ul>
+    </div>
+    <div class="container-button">
+        <a href="{% url 'index-collaborator' %}"><button>Index</button></a>
+        <a href="{% url 'update-collaborator' id_collaborator %}"><button>Update</button></a>
+        <a href="{% url 'delete-collaborator' id_collaborator %}"><button>Delete</button></a>
+    </div>
 
 {% endblock body %}

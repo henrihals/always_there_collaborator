@@ -59,7 +59,7 @@ ROOT_URLCONF = 'always_there.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': {os.path.join(BASE_DIR, 'templates/')},
+        'DIRS': {os.path.join(BASE_DIR / 'templates/')},
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -99,9 +99,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
-    # {
-    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    # },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
 ]
 
 
@@ -121,6 +121,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'account/static/',
+    BASE_DIR / 'collaborator_account/static/',
+    BASE_DIR / 'homepage/static/',
+    BASE_DIR / 'static/',
+    BASE_DIR / 'user_account/static/'
+    #os.path.join(BASE_DIR, 'collaborator_account/static/'),
+]
+
+# Média files
+
+MEDIA_URL ='/media/'
+
+MEDIA_ROOT= BASE_DIR / 'media/'
 
 # Authentication
 

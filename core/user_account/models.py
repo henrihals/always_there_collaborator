@@ -17,8 +17,8 @@ class Index_user(models.Model):
     zip_code = models.CharField(max_length=10, null=False)
     town = models.CharField(max_length=50, null=False)
     country = models.CharField(max_length=50, null=False)
-    prefix_gsm = models.PositiveIntegerField(null=False)
-    gsm = models.PositiveIntegerField(null=False)
+    prefix_gsm = models.IntegerField(null=False)
+    gsm = models.IntegerField(null=False)
 
     def __str__(self):
         return f'{self.id_user}   /   {self.creation_date}   /   {self.firstname}   /   {self.lastname}   /   {self.email}   /   {self.town}   /   {self.country}  / {self.prefix_gsm}{self.gsm}'

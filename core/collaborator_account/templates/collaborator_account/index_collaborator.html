@@ -1,34 +1,28 @@
 {% extends 'layouts/base.html' %}
 
+{% load static %}
+
 {% block title %}Index collaborator{% endblock title %}
 
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'collaborator_account/css/index.css' %}">
+{% endblock stylesheets %}
+
 {% block body %}
-    <h1>List collaborator</h1>
-    <p>Today, there are {{ collaborator_number }} employees.</p>
-    <table>
-            <thead>
-                <tr>
-                    <th>Identifier</th>
-                    <th>Firstname</th>
-                    <th>lastname</th>
-                    <th>Email</th>
-                    <th>Town</th>
-                    <th>Country</th>
-                    <th>Creation date</th>
-                </tr>
-            </thead>
-            {% for collaborator in index_collaborators %}
-            <tbody>
-                <tr>
-                    <td><a href="{% url 'data-collaborator' collaborator.id_collaborator %}"> {{ collaborator.id_collaborator }} </a></td>
-                    <td> {{ collaborator.firstname }} </td>
-                    <td> {{ collaborator.lastname }} </td>
-                    <td> {{ collaborator.email }} </td>
-                    <td> {{ collaborator.town }} </td>
-                    <td> {{ collaborator.country }} </td>
-                    <td> {{ collaborator.creation_date|date:"d F Y à H:i:s" }} </td>
-                </tr>
-            </tbody>
-        {% endfor %}
-    </table>
+    <div class="container-title">
+        <H1>We are currently {{ collaborator_number }} collaborators :</H1>
+    </div>
+    <div class="container-card-index-collaborator">
+    {% for profile in collaborators %}
+        <a href="{% url 'data-collaborator' profile.id_collaborator %}">
+            <ul class="container-card-collaborator">
+            {% if profile.image %}
+                <li><img src="{{ profile.image.url }}" alt="Photo profil"></li>
+            {% endif %}
+                <li class="name-card-index"> {{ profile.firstname }} {{ profile.lastname }} </li>
+                <li class="email-card-index"> {{ profile.email }} </li>
+            </ul>
+        </a>   
+    {% endfor %}
+    </div> 
 {% endblock body %}

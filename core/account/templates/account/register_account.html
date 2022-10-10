@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}Register collaborator{% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'collaborator_account/css/update.css' %}">
+{% endblock stylesheets %}
+
+{% block body %}
+<div class="container-title">
+    <h1>Sign up</h1>
+</div>
+<div class="container-form">
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="container_label">
+            {% csrf_token %}
+            {{ form.as_p}}
+            {{ profile.as_p }}
+            <div class="container-submit">
+                <button><a href="{% url 'login' %}">Login</a></button>
+                <input class="submit" type="submit" name="submit" value="Submit">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock body %}

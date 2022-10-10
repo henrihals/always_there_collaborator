@@ -1,13 +1,27 @@
 {% extends 'layouts/base.html' %}
 
+{% load static %}
+
 {% block title %}Register user{% endblock title %}
 
-{% block body %}
-    <h1>Register user</h1>
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'user_account/css/update.css' %}">
+{% endblock stylesheets %}
 
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p}}
-        <input type="submit" name="submit" value="submit">
+{% block body %}
+<div class="container-title">
+    <h1>Register user</h1>
+</div>
+<div class="container-form">
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="container_label">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <div class="container-submit">
+                <button><a href="{% url 'index-user' %}">Index</a></button>
+                <input class="submit" type="submit" name="submit" value="Submit">
+            </div>
+        </div>
     </form>
+</div>
 {% endblock body %}

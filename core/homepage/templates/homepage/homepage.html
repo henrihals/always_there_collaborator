@@ -1,7 +1,36 @@
-{% extends 'layouts/base.html' %}
+{% extends 'homepage/layouts/base.html' %}
+
+{% load static %}
 
 {% block title %}Homepage{% endblock title %}
 
 {% block body %}
-    <h1>Homepage</h1>
+<div class="background-body">
+    <div class="container-card-homepage">
+        <a href="{% url 'index-collaborator' %}">
+            <div class="container-picture-homepage">
+                <img class="picture-homepage" src="{% static 'core/img/img_site/homepage/collaborator.jpg' %}" alt="Link collaborator">
+                <p class="title-box">Collaborators</p>
+            </div>
+        </a>
+        <a href="{% url 'index-user' %}">
+            <div class="container-picture-homepage">
+                <img class="picture-homepage" src="{% static 'core/img/img_site/homepage/user.jpg' %}" alt="Link user">
+                <p class="title-box">Users</p>
+            </div>
+        </a>
+        <a href="{% url 'construction' %}">
+            <div class="container-picture-homepage">
+                <img class="picture-homepage" src="{% static 'core/img/img_site/homepage/partner.jpg' %}" alt="Link partner ">
+                <p class="title-box">Partner</p>
+            </div>
+        </a>
+        <a href="{% url 'construction' %}">
+            <div class="container-picture-homepage">
+                <img class="picture-homepage" src="{% static 'core/img/img_site/homepage/e_commerce.jpg' %}" alt="Link e-commerce">
+                <p class="title-box">E-commerce</p>
+            </div>
+        </a>
+    </div>
+</div>
 {% endblock body %}

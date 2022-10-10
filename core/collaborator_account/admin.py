@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import Index_collaborator, Join_table
-from django.contrib.auth.models import Group
+# from .models import Index_collaborator, Join_table
+# from django.contrib.auth.models import Group
 
 # Register your models here.
 
-admin.site.register(Index_collaborator),
-admin.site.register(Join_table)
+# admin.site.register(Index_collaborator),
+# admin.site.register(Join_table)
 
 # permet de trier les table de la manière qu'on souhaite mais il faut trouver comment accéder à ça en enfonction des tables 
 # class IndexCollaboratorAdmin(admin.ModelAdmin):
